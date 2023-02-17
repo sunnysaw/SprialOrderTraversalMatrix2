@@ -6,34 +6,21 @@ public class Main {
     static void PrintMethod(int[][] matrix){
         for (int i = 0; i < matrix.length; i++){
             for (int j = 0; j < matrix[i].length; j++){
-                System.out.print(matrix[i][j]);
+                System.out.print(matrix[i][j]+" ");
             }
             System.out.println();
         }
     }
-    static void SpiralOrder(int a){
-        int count = 1,topRow = 0,bottomRow = a-1, leftcol = 0, rightCol = a-1;
+    public  static void  SpiralOrder(int a){
+        int count = 1;
         int[][] matrix = new int[a][a];
-        while (count <= a * a){
-            for (int j = leftcol; j <= rightCol && count <= a*a; j++){
-                matrix[topRow][j] = count++;
+            for(int i=0;i<matrix.length;i++){
+                for(int j=0;j<matrix[i].length;j++){
+                    matrix[i][j]=count++;
+                }
             }
-            topRow++;
-            for (int i = topRow; i <= bottomRow && count < a*a; i++){
-                matrix[i][rightCol] = count++;
-            }
-            rightCol--;
-            for (int j = rightCol; j >= leftcol && count < a*a; j--){
-                matrix[bottomRow][j] = count++;
-            }
-            bottomRow--;
-            for (int i= bottomRow; i >= topRow && count < a*a; i--){
-                matrix[i][leftcol] = count++;
-            }
-            leftcol++;
+             PrintMethod(matrix);
         }
-        PrintMethod(matrix);
-    }
     public static void main(String[] args) {
         int a,temp,temp2,temp3 = 1;
         Scanner sc = new Scanner(System.in);
